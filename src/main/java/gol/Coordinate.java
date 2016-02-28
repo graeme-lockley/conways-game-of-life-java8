@@ -1,16 +1,22 @@
 package gol;
 
+import java.math.BigInteger;
+
 public class Coordinate {
-    public final int x;
-    public final int y;
+    public final BigInteger x;
+    public final BigInteger y;
 
     public Coordinate(int x, int y) {
+        this(BigInteger.valueOf(x), BigInteger.valueOf(y));
+    }
+
+    public Coordinate(BigInteger x, BigInteger y) {
         this.x = x;
         this.y = y;
     }
 
     public Coordinate add(int deltaX, int deltaY) {
-        return new Coordinate(x + deltaX, y + deltaY);
+        return new Coordinate(x.add(BigInteger.valueOf(deltaX)), y.add(BigInteger.valueOf(deltaY)));
     }
 
     @Override
@@ -20,14 +26,14 @@ public class Coordinate {
 
         Coordinate that = (Coordinate) o;
 
-        return x == that.x && y == that.y;
+        return x.equals(that.x) && y.equals(that.y);
 
     }
 
     @Override
     public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
+        int result = x.hashCode();
+        result = 31 * result + y.hashCode();
         return result;
     }
 }
