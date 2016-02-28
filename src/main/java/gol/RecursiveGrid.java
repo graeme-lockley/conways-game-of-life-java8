@@ -60,7 +60,7 @@ public class RecursiveGrid {
         }
 
         private int isAlive(Coordinate coordinate) {
-            return cellState(coordinate) == ALIVE ? 1 : 0;
+            return at(coordinate) == ALIVE ? 1 : 0;
         }
 
         @Override
@@ -93,8 +93,8 @@ public class RecursiveGrid {
         }
 
         @Override
-        public CellState cellState(Coordinate coordinate) {
-            return this.coordinate.equals(coordinate) ? ALIVE : parent.cellState(coordinate);
+        public CellState at(Coordinate coordinate) {
+            return this.coordinate.equals(coordinate) ? ALIVE : parent.at(coordinate);
         }
 
         @Override
@@ -115,7 +115,7 @@ public class RecursiveGrid {
         }
 
         @Override
-        public CellState cellState(Coordinate coordinate) {
+        public CellState at(Coordinate coordinate) {
             return CellState.DEAD;
         }
 

@@ -7,7 +7,7 @@ public interface Grid {
 
     Grid forEachRelevantCell(Function<Coordinate, CellState> cellMap);
 
-    CellState cellState(Coordinate coordinate);
+    CellState at(Coordinate coordinate);
 
     boolean isEmpty();
 }

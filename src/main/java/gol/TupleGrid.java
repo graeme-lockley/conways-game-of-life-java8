@@ -28,11 +28,11 @@ public class TupleGrid implements Grid {
     }
 
     private int isAlive(Coordinate coordinate) {
-        return cellState(coordinate) == CellState.ALIVE ? 1 : 0;
+        return at(coordinate) == CellState.ALIVE ? 1 : 0;
     }
 
     @Override
-    public CellState cellState(Coordinate coordinate) {
+    public CellState at(Coordinate coordinate) {
         return bindings.contains(coordinate) ? CellState.ALIVE : CellState.DEAD;
     }
 

@@ -48,14 +48,14 @@ public class TupleGridTest {
 
     @Test
     public void given_a_blank_grid_every_coordinate_should_return_the_default_value() throws Exception {
-        forAll(COORDINATES, c -> assertEquals(DEAD, builder.get().build().cellState(c)));
+        forAll(COORDINATES, c -> assertEquals(DEAD, builder.get().build().at(c)));
     }
 
     @Test
     public void given_a_blank_grid_every_set_coordinate_should_return_its_set_value() throws Exception {
         forAll(COORDINATES, c -> {
             final Grid grid = builder.get().at(c).build();
-            assertEquals(ALIVE, grid.cellState(c));
+            assertEquals(ALIVE, grid.at(c));
         });
     }
 
@@ -97,7 +97,7 @@ public class TupleGridTest {
             final Grid newGrid = grid.forEachRelevantCell(cell -> ALIVE);
 
             assertEquals(8, newGrid.numberOfAliveNeighbours(c));
-            assertEquals(ALIVE, newGrid.cellState(c));
+            assertEquals(ALIVE, newGrid.at(c));
         });
     }
 }

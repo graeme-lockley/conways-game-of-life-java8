@@ -13,7 +13,7 @@ public class Tick implements Function<Grid, Grid> {
 
     private CellState tickCell(Grid generation, Coordinate coordinate) {
         int numberOfNeighbours = generation.numberOfAliveNeighbours(coordinate);
-        switch (generation.cellState(coordinate)) {
+        switch (generation.at(coordinate)) {
             case ALIVE:
                 if (numberOfNeighbours < 2) {
                     return DEAD;
