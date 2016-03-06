@@ -8,7 +8,7 @@ import static gol.CellState.DEAD;
 public class Tick implements Function<Grid, Grid> {
     @Override
     public Grid apply(Grid generation) {
-        return generation.forEachRelevantCell(c -> tickCell(generation, c));
+        return generation.mapParticipatingCells(c -> tickCell(generation, c));
     }
 
     private CellState tickCell(Grid generation, Coordinate coordinate) {

@@ -37,7 +37,7 @@ public class TupleGrid implements Grid {
     }
 
     @Override
-    public Grid forEachRelevantCell(Function<Coordinate, CellState> cellMap) {
+    public Grid mapParticipatingCells(Function<Coordinate, CellState> cellMap) {
         Set<Coordinate> coordinates = new HashSet<>();
 
         bindings.stream().forEach(c -> {

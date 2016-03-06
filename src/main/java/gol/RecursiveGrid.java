@@ -64,7 +64,7 @@ public class RecursiveGrid {
         }
 
         @Override
-        public Grid forEachRelevantCell(Function<Coordinate, CellState> cellMap) {
+        public Grid mapParticipatingCells(Function<Coordinate, CellState> cellMap) {
             final List<Coordinate> coordinates = Arrays.asList(
                     coordinate.add(-1, -1),
                     coordinate.add(0, -1),
@@ -76,7 +76,7 @@ public class RecursiveGrid {
                     coordinate.add(0, 1),
                     coordinate.add(1, 1));
 
-            Grid accumulator = parent.forEachRelevantCell(cellMap);
+            Grid accumulator = parent.mapParticipatingCells(cellMap);
             for (Coordinate c : coordinates) {
                 accumulator = addCell(accumulator, c, cellMap.apply(c));
             }
@@ -110,7 +110,7 @@ public class RecursiveGrid {
         }
 
         @Override
-        public Grid forEachRelevantCell(Function<Coordinate, CellState> cellMap) {
+        public Grid mapParticipatingCells(Function<Coordinate, CellState> cellMap) {
             return new EmptyRecursiveGrid();
         }
 

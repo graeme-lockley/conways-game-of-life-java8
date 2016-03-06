@@ -84,7 +84,7 @@ public class TupleGridTest {
 
     @Test
     public void given_a_blank_grid_no_relevant_cells() throws Exception {
-        final Grid newGrid = builder.get().build().forEachRelevantCell(c -> ALIVE);
+        final Grid newGrid = builder.get().build().mapParticipatingCells(c -> ALIVE);
 
         assertTrue(newGrid.isEmpty());
     }
@@ -94,7 +94,7 @@ public class TupleGridTest {
         forAll(COORDINATES, c -> {
             Grid grid = builder.get().at(c).build();
 
-            final Grid newGrid = grid.forEachRelevantCell(cell -> ALIVE);
+            final Grid newGrid = grid.mapParticipatingCells(cell -> ALIVE);
 
             assertEquals(8, newGrid.numberOfAliveNeighbours(c));
             assertEquals(ALIVE, newGrid.at(c));
