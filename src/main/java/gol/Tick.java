@@ -12,19 +12,19 @@ public class Tick implements Function<Grid, Grid> {
     }
 
     private CellState tickCell(Grid generation, Coordinate coordinate) {
-        int numberOfNeighbours = generation.numberOfAliveNeighbours(coordinate);
+        final int numberOfAliveNeighbours = generation.numberOfAliveNeighbours(coordinate);
         switch (generation.at(coordinate)) {
             case ALIVE:
-                if (numberOfNeighbours < 2) {
+                if (numberOfAliveNeighbours < 2) {
                     return DEAD;
-                } else if (numberOfNeighbours == 2 || numberOfNeighbours == 3) {
+                } else if (numberOfAliveNeighbours == 2 || numberOfAliveNeighbours == 3) {
                     return ALIVE;
                 } else {
                     return DEAD;
                 }
             default:
             case DEAD:
-                if (numberOfNeighbours == 3) {
+                if (numberOfAliveNeighbours == 3) {
                     return ALIVE;
                 } else {
                     return DEAD;
