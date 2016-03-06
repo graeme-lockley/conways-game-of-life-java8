@@ -4,7 +4,7 @@ discouraging is how the language was manipulated from the underlying algorithm d
 at the code retreats that I have been part of.
 
 What I wanted to do was code the algorithm as accurately as I could
-using both the explicit and implicit language.  The results of this exercise is contained in this project.
+using both the explicit and implicit language.  The results of this exercise is contained in this project.  Further to that I have also written a note describing this exercise [here](http://graeme-lockley.github.io/posts/20160227-conways-game-of-life).
 
 
 Note: If you would like to build this project I have made use of a property based testing library which I have not yet
