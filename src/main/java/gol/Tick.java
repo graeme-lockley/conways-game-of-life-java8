@@ -15,20 +15,13 @@ public class Tick implements Function<Grid, Grid> {
         final int numberOfAliveNeighbours = generation.numberOfAliveNeighbours(coordinate);
         switch (generation.at(coordinate)) {
             case ALIVE:
-                if (numberOfAliveNeighbours < 2) {
-                    return DEAD;
-                } else if (numberOfAliveNeighbours == 2 || numberOfAliveNeighbours == 3) {
-                    return ALIVE;
-                } else {
-                    return DEAD;
-                }
+                return (numberOfAliveNeighbours < 2) ? DEAD
+                        : (numberOfAliveNeighbours == 2 || numberOfAliveNeighbours == 3) ? ALIVE
+                        : DEAD;
             default:
             case DEAD:
-                if (numberOfAliveNeighbours == 3) {
-                    return ALIVE;
-                } else {
-                    return DEAD;
-                }
+                return (numberOfAliveNeighbours == 3) ? ALIVE
+                        : DEAD;
         }
     }
 }
